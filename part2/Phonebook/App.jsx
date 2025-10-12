@@ -43,6 +43,21 @@ const App = () => {
     })
   }
 
+const handleDelete = (id, name) => {
+  if (window.confirm(`Delete ${name}?`)) {
+    personService
+      .deletePerson(id)
+      .then(() => {
+        setPersons(persons.filter(p => p.id !== id))
+      })
+      .catch(error => {
+        alert(`Information of ${name} has already been removed from server`)
+        setPersons(persons.filter(p => p.id !== id))
+      });
+  }
+}
+
+
   const handleNoteChange = (event) => {
     console.log(event.target.value)
     setNewName(event.target.value)
@@ -57,6 +72,10 @@ const App = () => {
     console.log(event.target.value)
     setSearchTerm(event.target.value)
   }
+
+  const filteredPersons = persons.filter(person =>
+  person.content.toLowerCase().includes(searchTerm.toLowerCase())
+);
 
   return (
     <div>
@@ -77,9 +96,7 @@ const App = () => {
       />
 
       <h2>Numbers</h2>
-      <Persons
-        persons={persons}
-      />
+      <Persons persons={filteredPersons} handleDelete={handleDelete} />
     </div>
   )
 }

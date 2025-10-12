@@ -5,12 +5,14 @@ import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import axios from 'axios'
 import personService from './services/persons'
+import Notification from './components/Notification'
 
 const App = () => {
   const [persons, setPersons] = useState([])
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [searchTerm, setSearchTerm] = useState('') 
+  const [changeMessage, setchangeMessage] = useState(null)
 
   useEffect(() => {
     personService
@@ -40,6 +42,10 @@ const App = () => {
       .then(returnPerson => {
         setPersons(persons.concat(returnPerson))
         setNewName('')
+        setchangeMessage(`Added ${newName}`)
+        setTimeout(() => {
+          setchangeMessage(null)
+        }, 666)
     })
   }
 
@@ -79,7 +85,8 @@ const handleDelete = (id, name) => {
 
   return (
     <div>
-      <h2>Phonebook</h2>
+      <h1>Phonebook</h1>
+      <Notification message={changeMessage} />
       <Filter  
         persons={persons}
         searchTerm={searchTerm}

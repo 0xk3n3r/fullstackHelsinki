@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import axios from 'axios'
+import './main.css'
 
 import App from './App'
 

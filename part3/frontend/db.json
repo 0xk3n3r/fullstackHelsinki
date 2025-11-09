@@ -1,0 +1,48 @@
+{
+  "persons": [
+    {
+      "content": "Arto Hellas",
+      "number": "040-123456",
+      "id": "1"
+    },
+    {
+      "content": "Ada Lovelace",
+      "number": "39-44-5323523",
+      "id": "2"
+    },
+    {
+      "content": "Dan Abramov",
+      "number": "12-43-234345",
+      "id": "3"
+    },
+    {
+      "content": "Mary Poppendieck",
+      "number": "39-23-6423122",
+      "id": "4"
+    },
+    {
+      "id": "6",
+      "content": "tre",
+      "number": "865-666-333",
+      "important": true
+    },
+    {
+      "id": "7",
+      "content": "2q32",
+      "number": "111",
+      "important": false
+    },
+    {
+      "id": "8",
+      "content": "wewe",
+      "number": "111",
+      "important": true
+    },
+    {
+      "id": "8",
+      "content": "121",
+      "number": "111",
+      "important": true
+    }
+  ]
+}
